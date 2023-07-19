@@ -40,4 +40,16 @@ public class UIManager : MonoBehaviour
 	public virtual void UpdateScoreText(int value) {
 
 	}
+
+	public virtual void UpdateTimeText (float value) {
+
+	}
+
+	public virtual void UpdateSkillText (float value) {
+
+	}
+
+	public virtual void UpdateSkillCDText (float value) {
+
+	}
 }
