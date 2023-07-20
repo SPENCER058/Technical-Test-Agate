@@ -18,7 +18,7 @@ public class PlayerController7 : MonoBehaviour
 
 	private void OnCollisionEnter2D (Collision2D collision) {
 		if (collision.gameObject.CompareTag("Coin")) {
-			gameObject.SetActive(false);
+			collision.gameObject.SetActive(false);
 			score++;
 			UpdateScoreText(score);
 		}
