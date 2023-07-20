@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 		_uiManager.OnMainMenu -= MainMenu;
 		_uiManager.OnQuit -= QuitGame;
 
-		_uiManager.OnSelectLevel -= _gameSceneManager.LoadScene;
+		_uiManager.OnSelectLevel -= _gameSceneManager.LoadScene; 
 	}
 
 

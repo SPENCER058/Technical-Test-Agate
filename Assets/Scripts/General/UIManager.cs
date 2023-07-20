@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
 		OnSelectLevel?.Invoke(levelName);
 	}
 
+	// Not tidy because sudden change of design
 	public virtual void UpdateScoreText(int value) {
 
 	}
@@ -50,6 +51,10 @@ public class UIManager : MonoBehaviour
 	}
 
 	public virtual void UpdateSkillCDText (float value) {
+
+	}
+
+	public virtual void UpdateGameOverText (int finalScore) {
 
 	}
 }

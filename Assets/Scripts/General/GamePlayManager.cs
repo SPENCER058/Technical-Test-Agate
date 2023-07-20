@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamePlayManager : GameManager
 {
@@ -13,6 +15,7 @@ public class GamePlayManager : GameManager
 	[SerializeField] private GameObject playerGameObject;
 	[SerializeField] private PickableItem pickableItem;
 	[SerializeField] private GameObject coinPrefabs;
+	[SerializeField] private Button pauseButton;
 
 	[Header("Game Data")]
 	[SerializeField] private int score = 0;
@@ -105,6 +108,8 @@ public class GamePlayManager : GameManager
 
 			if (gameTimeRemaining <= 0f) {
 
+				GameOver();
+
 			} else {
 				gameTimeRemaining -= Time.deltaTime;
 				_uiManager.UpdateTimeText(gameTimeRemaining);
@@ -138,11 +143,15 @@ public class GamePlayManager : GameManager
 		_uiManager.UpdateSkillText(skillAvailable);
 	}
 
+	private void GameOver () {
+		pauseButton.onClick.Invoke();
+		_uiManager.UpdateGameOverText(score);
+	}
+
 	private void OnitemPickUp (ItemType itemType, int value, GameObject gameObject) {
 
 		switch (itemType) {
 			case ItemType.coin:
-				// TODO Add coin to player
 
 				score += value;
 				_uiManager.UpdateScoreText(score);
@@ -151,7 +160,7 @@ public class GamePlayManager : GameManager
 
 				break;
 			case ItemType.addTime:
-				// TODO Add time to player
+				// TODO Add time to player (if there is spare time))
 				break;
 		}
 
